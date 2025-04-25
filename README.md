@@ -1,5 +1,6 @@
 
-# Vite + Tailwind CSS Boilerplat
+# Vite Production Grade Template
+by [Dhiraj Suthar](https://dhirajsportfolio.in.net)
 A scalable, modular, and collaborative frontend project setup using **Vite**, **React**, **Redux**, and **Tailwind CSS (v4)**.
 
 ## Table of Contents
@@ -14,7 +15,7 @@ A scalable, modular, and collaborative frontend project setup using **Vite**, **
 
 Clone the Repo 
  ```sh
-$ git clone https://
+$ git clone https://github.com/ScremingAlien/vite-frontend-template-for-production-grade-project.git
 ```
 
 Install packages with [npm](https://www.npmjs.com/package/cmtu)
