@@ -3,12 +3,12 @@ import clsx from 'clsx';
 import { LoaderCircle } from 'lucide-react';
 
 const variantStyles = {
-     secondary: ' bg-secondary-500/5   ',
+     secondary: ' bg-secondary/5   ',
      success: 'bg-[#06D001]   hover:bg-[#00db04c9] text-white',
-     
-     ghost: '    hover:bg-secondary-500/5',
-     primary: ' bg-secondary-500 text-primary-500 hover:bg-secondary-500/95',
-     outline: '  border border-secondary-500/20   hover:bg-secondary-500/5',
+
+     ghost: '    hover:bg-secondary/5',
+     primary: ' bg-secondary text-primary hover:bg-secondary/95',
+     outline: '  border border-secondary/20   hover:bg-secondary/5',
      danger: 'bg-[#e7000b] text-white hover:bg-[#ea000bc9]',
 };
 
@@ -23,7 +23,7 @@ const iconStyles = {
 
 
 const Button = ({
-     
+
      children,
      loading = false,
      disabled = false,
@@ -34,12 +34,12 @@ const Button = ({
      ...props
 }) => {
      const isDisabled = loading || disabled;
-     
+
      return (
           <button
                style={{ width: w }}
                className={clsx(
-                    ` font-inter font-medium tracking-[0.02rem] flex justify-center items-center  focus:outline-offset-3 duration-150 cursor-pointer `,
+                    ` font-inter font-[500] tracking-[0.02rem] flex justify-center items-center  focus:outline-offset-3 duration-150 cursor-pointer `,
                     variantStyles[variant],
                     SizeStyles[size],
                     isDisabled && ' cursor-not-allowed',

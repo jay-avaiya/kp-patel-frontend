@@ -23,8 +23,11 @@
 
 @theme {
 
-     --color-primary-500: #F5F5F5;
-     --color-secondary-500: #0f0f0f;
+     --color-primary: #F7F7F7;
+     --color-secondary: #000000;
+     --color-accent: #EAE4D5;
+
+     
 
      --font-manrope: 'Manrope', sans-serif;
      --font-roboto: 'Roboto', sans-serif;
