@@ -4,7 +4,7 @@ import Purpose from "./_components/Purpose";
 
 const Homepage = () => {
   return (
-    <div>
+    <div className="flex flex-col space-y-24">
       <HeroSlider />
       <AboutUs />
       <Purpose />

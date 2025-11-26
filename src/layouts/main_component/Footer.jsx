@@ -94,7 +94,7 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <>
+    <footer>
       <div className="w-full h-fit">
         <div className="bg-[#0E1A42]">
           <div className="maxw h-fit grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 px-[134.41px] py-10">
@@ -238,7 +238,7 @@ const Footer = () => {
           </p>
         </div>
       </div>
-    </>
+    </footer>
   );
 };
 

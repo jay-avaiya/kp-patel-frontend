@@ -9,12 +9,16 @@ export default function MainLayout() {
   const hideContact = ["/admission/process"].includes(location.pathname);
 
   return (
-    <div>
-      <Navbar />
-      <Outlet />
+    <div className="flex flex-col space-y-16">
+      <div>
+        <Navbar />
+        <Outlet />
+      </div>
       {!hideContact && <ContactForm />}
-      <Map />
-      <Footer />
+      <div>
+        <Map />
+        <Footer />
+      </div>
     </div>
   );
 }

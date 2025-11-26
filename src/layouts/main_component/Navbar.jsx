@@ -43,73 +43,71 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   return (
-    <>
-      <div className="w-full h-[242px]">
-        <div className="bg-white text-black">
-          {/* TOP HEADER */}
-          <div className="w-full h-[84px]">
-            <div className="bg-[#011844] flex justify-between items-center py-[25px] px-[86px]">
-              <p className="text-[20px] font-montserrat font-medium text-white">
-                Admission open for Std. 1 to 12 on Ash Education Trust Vijapur
-              </p>
+    <nav className="w-full h-[242px]">
+      <div className="bg-white text-black">
+        {/* TOP HEADER */}
+        <div className="w-full h-[84px]">
+          <div className="bg-[#011844] flex justify-between items-center py-[25px] px-[86px]">
+            <p className="text-[20px] font-montserrat font-medium text-white">
+              Admission open for Std. 1 to 12 on Ash Education Trust Vijapur
+            </p>
 
-              <Search />
-            </div>
+            <Search />
+          </div>
+        </div>
+
+        <hr className="border border-black mt-4" />
+
+        {/* NAVBAR */}
+        <div className="w-full mx-auto flex items-center justify-between px-[50px]">
+          <div className="">
+            <img
+              src="/logo.png"
+              alt="logo"
+              className="h-[144px] w-[244px] cursor-pointer object-cover"
+            />
           </div>
 
-          <hr className="border border-black mt-4" />
+          <div className="text-black flex items-center justify-between gap-x-8 list-none text-2xl font-medium ">
+            {navBar.map((item, index) => {
+              let isActive;
 
-          {/* NAVBAR */}
-          <div className="w-full mx-auto flex items-center justify-between px-[50px]">
-            <div className="">
-              <img
-                src="/logo.png"
-                alt="logo"
-                className="h-[144px] w-[244px] cursor-pointer object-cover"
-              />
-            </div>
+              if (item.path === "/") {
+                isActive = location.pathname === "/";
+              } else {
+                isActive = location.pathname.startsWith(item.path);
+              }
 
-            <div className="text-black flex items-center justify-between gap-x-8 list-none text-2xl font-medium ">
-              {navBar.map((item, index) => {
-                let isActive;
+              return (
+                <li key={index} className="relative group">
+                  <Link
+                    to={item.path}
+                    className={`transition-colors duration-300 ${
+                      isActive
+                        ? "text-[#FF5500]"
+                        : "text-black group-hover:text-[#FF5500]"
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
 
-                if (item.path === "/") {
-                  isActive = location.pathname === "/";
-                } else {
-                  isActive = location.pathname.startsWith(item.path);
-                }
+                  <span
+                    className={`absolute left-0 -bottom-3 h-[4px] rounded-lg bg-[#FF5500] transition-all duration-300 ${
+                      isActive ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
+                  ></span>
+                </li>
+              );
+            })}
 
-                return (
-                  <li key={index} className="relative group">
-                    <Link
-                      to={item.path}
-                      className={`transition-colors duration-300 ${
-                        isActive
-                          ? "text-[#FF5500]"
-                          : "text-black group-hover:text-[#FF5500]"
-                      }`}
-                    >
-                      {item.name}
-                    </Link>
-
-                    <span
-                      className={`absolute left-0 -bottom-3 h-[4px] rounded-lg bg-[#FF5500] transition-all duration-300 ${
-                        isActive ? "w-full" : "w-0 group-hover:w-full"
-                      }`}
-                    ></span>
-                  </li>
-                );
-              })}
-
-              <MainButton
-                title={"Contact Us"}
-                navigate={() => navigate("/contact")}
-              />
-            </div>
+            <MainButton
+              title={"Contact Us"}
+              navigate={() => navigate("/contact")}
+            />
           </div>
         </div>
       </div>
-    </>
+    </nav>
   );
 };
 

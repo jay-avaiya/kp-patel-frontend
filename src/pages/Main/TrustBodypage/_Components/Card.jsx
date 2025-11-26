@@ -6,7 +6,7 @@ const Card = () => {
       <img
         src="/trust.png"
         alt="trust"
-        className="w-full h-full object-cover overflow-hidden rounded-[38px] opacity-96"
+        className="w-full h-full object-cover rounded-[38px] brightness-69"
       />
       <div className="absolute left-34 bottom-8 flex flex-col items-center gap-4 text-white">
         <h4 className="font-montserrat font-bold text-2xl leading-[36px] -tracking-[2%]">
