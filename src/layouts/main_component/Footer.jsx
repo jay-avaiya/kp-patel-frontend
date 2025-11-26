@@ -93,12 +93,16 @@ const Footer = () => {
 
   const year = new Date().getFullYear();
 
+  const handleScroll = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <footer>
       <div className="w-full h-fit">
         <div className="bg-[#0E1A42]">
           <div className="maxw h-fit grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 px-[134.41px] py-10">
-            {/* QUICK LINKS */}
+            {/* Quick links */}
             <div>
               <p
                 className={`md:text-[26px] text-[20px] text-[#FAFAFA] font-semibold font-manrope`}
@@ -108,7 +112,7 @@ const Footer = () => {
 
               <div className="flex flex-col gap-y-2 mt-8">
                 {quickLinks.map((link, index) => (
-                  <Link to={link.link} key={index}>
+                  <Link onClick={handleScroll} to={link.link} key={index}>
                     <li className={`font-manrope text-[16px] text-[#DADADA99]`}>
                       {link.name}
                     </li>

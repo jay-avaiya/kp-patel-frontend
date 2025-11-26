@@ -3,6 +3,11 @@ import { useNavigate } from "react-router-dom";
 
 const AdmissionProcess = () => {
   const navigate = useNavigate();
+
+  const handleClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className="w-full min-h-screen flex flex-col items-center justify-center gap-y-25 my-16">
       <div className="h-[147px] w-[939px] text-center space-y-6">
@@ -86,7 +91,10 @@ const AdmissionProcess = () => {
 
       <button
         className="flex items-center gap-[18px] bg-[#F94223] text-white h-[50px] w-[252px] rounded-full justify-center hover:text-[#F94223] hover:bg-transparent hover:border hover:border-[#F94223]"
-        onClick={() => navigate("/admission/process")}
+        onClick={() => {
+          navigate("/admission/process");
+          handleScroll();
+        }}
       >
         <span className="text-[20px]">Start Now</span>
         <ArrowRight size={20} />

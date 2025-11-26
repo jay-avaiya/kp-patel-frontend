@@ -4,6 +4,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { useNavigate } from "react-router-dom";
 import MainButton from "../../../../components/ui/MainButton";
 
 const slides = [
@@ -25,6 +26,12 @@ const slides = [
 ];
 
 const HeroSlider = () => {
+  const navigate = useNavigate();
+
+  const handleScroll = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className="w-full relative h-[838px]">
       <Swiper
@@ -58,7 +65,12 @@ const HeroSlider = () => {
                   {slide.desc}
                 </p>
 
-                <MainButton title={"Explore Academics"} />
+                <div onClick={handleScroll}>
+                  <MainButton
+                    title={"Explore Academics"}
+                    navigate={() => navigate("/academics")}
+                  />
+                </div>
               </div>
             </div>
           </SwiperSlide>
