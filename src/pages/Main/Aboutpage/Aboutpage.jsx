@@ -3,10 +3,11 @@ import Curve from "../../../layouts/main_component/Curve";
 import Mission from "./_components/Mission";
 import Vision from "./_components/Vision";
 import Message from "./_components/Message";
+import Event from "../../../layouts/main_component/Event";
 
 export default function Aboutpage() {
   return (
-    <div className="flex flex-col space-y-28">
+    <div className="flex flex-col space-y-16">
       <Curve title={"About Us"} />
 
       <div className="py-16 my-12 flex flex-col items-center space-y-26">
@@ -56,6 +57,8 @@ export default function Aboutpage() {
       <Vision />
 
       <Message />
+
+      <Event />
     </div>
   );
 }

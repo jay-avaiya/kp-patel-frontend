@@ -1,6 +1,7 @@
 import React from "react";
 import Curve from "../../../layouts/main_component/Curve";
 import ProgramCard from "./_components/ProgramCard";
+import Event from "../../../layouts/main_component/Event";
 
 const Academicspage = () => {
   return (
@@ -28,6 +29,8 @@ const Academicspage = () => {
           <ProgramCard />
         </div>
       </div>
+
+      <Event />
     </div>
   );
 };

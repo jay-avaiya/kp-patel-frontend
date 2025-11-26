@@ -1,6 +1,7 @@
 import React from "react";
 import Curve from "../../../layouts/main_component/Curve";
 import Card from "./_Components/Card";
+import Event from "../../../layouts/main_component/Event";
 
 const TrushBodypage = () => {
   return (
@@ -28,6 +29,8 @@ const TrushBodypage = () => {
         <Card />
         <Card />
       </div>
+
+      <Event />
     </div>
   );
 };

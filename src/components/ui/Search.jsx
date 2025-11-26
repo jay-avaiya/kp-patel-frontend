@@ -7,9 +7,9 @@ const Search = () => {
       <input
         type="text"
         placeholder="Search"
-        className="text-white w-full text-[14px] font-semibold outline-none  h-full"
+        className="text-white w-full text-[14px] font-semibold outline-none  h-full px-4"
       />
-      <div className="w-[37px] h-[35px] rounded-full bg-white placeholder-white flex items-center justify-center">
+      <div className="w-[37px] h-[35px] rounded-full bg-white placeholder-white flex items-center justify-center shrink-0">
         <IoSearch size={18} />
       </div>
     </div>
