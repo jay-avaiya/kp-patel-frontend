@@ -88,9 +88,9 @@ const Navbar = () => {
       {/* Desktop */}
       <div className="bg-white text-black">
         {/* Top header responsive */}
-        <div className="bg-[#011844] px-8 py-1 md:px-10 md:py-4 lg:px-14 lg:py-6 xl:px-[69px] xl:py-[30px]">
+        <div className="bg-[#011844] px-8 py-1 md:px-8 md:py-2 lg:px-14 lg:py-6 xl:px-[69px] xl:py-[30px]">
           <div className="flex justify-center md:justify-between items-center text-center ">
-            <p className=" text-[10px]  md:text-[14px] lg:text-[20px] font-montserrat font-medium text-white">
+            <p className=" text-[10px]  md:text-[12px] lg:text-[20px] font-montserrat font-medium text-white">
               Admission open for Std. 1 to 12 on Ash Education Trust Vijapur
             </p>
 
@@ -153,15 +153,15 @@ const Navbar = () => {
       </div>
 
       {/* Mobile */}
-      <div className="lg:hidden md:px-10 md:py-2 w-full flex items-center justify-between px-3 py-1">
+      <div className="lg:hidden md:px-8 md:py-2 w-full flex items-center justify-between px-3 py-1">
         <button onClick={() => setIsOpen(true)} className="text-[#011844]">
-          <Menu size={24} />
+          <Menu size={20} />
         </button>
 
         <img
           src="/logo.png"
           alt="logo"
-          className="w-[78px] h-[45px] md:w-[200px] md:h-[90px] object-cover"
+          className="w-[78px] h-[45px] md:w-[140px] md:h-[60px] object-cover"
         />
 
         <button className="w-[25px] h-[25px] rounded-full shrink-0 flex items-center justify-center text-white bg-[#F94223] md:hidden">
