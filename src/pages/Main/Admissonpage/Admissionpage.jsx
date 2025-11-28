@@ -3,10 +3,10 @@ import AdmissionProcess from "./_components/AdmissionProcess";
 
 const Admissionpage = () => {
   return (
-    <>
+    <div className="flex flex-col gap-18">
       <Curve title={"Admission"} />
       <AdmissionProcess />
-    </>
+    </div>
   );
 };
 
