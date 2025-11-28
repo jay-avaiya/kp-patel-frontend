@@ -41,8 +41,9 @@
   font-family: var(--font-poppins);
 }
 
+
 /* Swiper Arrow Styling */
-.swiper-button-next,
+/* .swiper-button-next,
 .swiper-button-prev {
   color: #FF5500 !important;
   top: auto !important;
@@ -60,7 +61,7 @@
 }
 
 /* Pagination Dots Centered Between Arrows */
-.swiper-pagination {
+/* .swiper-pagination {
   bottom: 30px !important;
   color: #FF5500;
 }
@@ -70,11 +71,27 @@
   width: 10px;
   height: 10px;
   background: white !important;
-  opacity: 0.5;
-}
+  opacity: 0.5; */
+/* } */ */
 
-.custom-pagination .swiper-pagination-bullet-active {
+/* .custom-pagination .swiper-pagination-bullet-active {
   opacity: 1 !important;
   background: #FF5500 !important;
+} */
+
+/* target pagination inside your specific Swiper container to increase specificity */
+ .swiper-pagination-bullet {
+  background-color: white !important;
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  box-shadow: none !important;
 }
+
+
+.swiper-pagination-bullet-active {
+  background-color: #FF5500 !important;
+  opacity: 1 !important;
+  transform: scale(1.40) !important;
+}
+
 

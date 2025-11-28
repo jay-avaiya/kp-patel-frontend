@@ -1,31 +1,31 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
-
 import "swiper/css";
-import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "../../../../styles/index.css";
+import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { useNavigate } from "react-router-dom";
-import MainButton from "../../../../components/ui/MainButton";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
-const slides = [
-  {
-    img: "/swiper1.png",
-    title: "Nurturing Young Minds for a Brighter Tomorrow",
-    desc: "At Kantaben Manilal Patel Primary School, we believe every child is unique and capable of greatness.",
-  },
-  {
-    img: "/swiper1.png",
-    title: "A Place Where Learning Feels Like Home",
-    desc: "Creating a supportive and inspiring environment for every child.",
-  },
-  {
-    img: "/swiper1.png",
-    title: "Building Strong Foundations for the Future",
-    desc: "Empowering students with knowledge and creativity.",
-  },
-];
+export default function HeroSlider() {
+  const slides = [
+    {
+      img: "/swiper1.png",
+      title: "Nurturing Young Minds for a Brighter Tomorrow",
+      desc: "At Kantaben Manilal Patel Primary School, we believe every child is unique and capable of greatness.",
+    },
+    {
+      img: "/swiper1.png",
+      title: "A Place Where Learning Feels Like Home",
+      desc: "Creating a supportive and inspiring environment for every child.",
+    },
+    {
+      img: "/swiper1.png",
+      title: "Building Strong Foundations for the Future",
+      desc: "Empowering students with knowledge and creativity.",
+    },
+  ];
 
-const HeroSlider = () => {
   const navigate = useNavigate();
 
   const handleScroll = () => {
@@ -33,67 +33,78 @@ const HeroSlider = () => {
   };
 
   return (
-    <div className="w-full relative h-[838px]">
+    <div className="relative w-full h-[600px]">
       <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
+        slidesPerView={1}
+        loop={true}
+        autoplay={{ delay: 3000 }}
+        pagination={{
+          clickable: true,
+          renderBullet: (index, className) =>
+            `<span class="${className}" 
+          style="width:8px;
+          height:8px;
+          background:white;
+          opacity:1;
+          margin: 0 6px;
+          "></span>`,
+        }}
         navigation={{
+          enabled: true,
           nextEl: ".custom-next",
           prevEl: ".custom-prev",
         }}
-        pagination={{
-          el: ".custom-pagination",
-          clickable: true,
+        onSwiper={(swiper) => {
+          setTimeout(() => {
+            swiper.params.navigation.nextEl = ".custom-next";
+            swiper.params.navigation.prevEl = ".custom-prev";
+            swiper.navigation.init();
+            swiper.navigation.update();
+          }, 0);
         }}
-        autoplay={{ delay: 3000 }}
-        loop={true}
-        className="h-[90vh]"
+        modules={[Pagination, Navigation, Autoplay]}
+        className="mySwiper h-full"
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
-            <div className="relative h-full w-full">
+            {" "}
+            <div className="relative w-full h-full">
+              {" "}
               <img
                 src={slide.img}
-                className="w-full h-full object-cover brightness-[0.35]"
+                alt={slide.title}
+                className="w-full h-full object-cover brightness-[0.35] blur-[2px]"
               />
-
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-                <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight max-w-3xl line-clamp-2">
+              <div className="absolute inset-0 flex flex-col items-center gap-4 md:gap-6 justify-center text-white text-center">
+                <h3 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl line-clamp-2 leading-tight max-w-2xl font-bold font-montserrat">
                   {slide.title}
-                </h1>
-
-                <p className="text-white mt-4 text-lg max-w-2xl line-clamp-2 mb-6">
+                </h3>
+                <p className="font-medium text-[16px] lg:text-lg line-clamp-2 max-w-lg">
                   {slide.desc}
                 </p>
-
-                <div onClick={handleScroll}>
-                  <MainButton
-                    title={"Explore Academics"}
-                    navigate={() => navigate("/academics")}
-                  />
-                </div>
+                <button
+                  onClick={() => {
+                    navigate("/academics");
+                    handleScroll();
+                  }}
+                  className="bg-[#FF5500] rounded-full py-2 px-6 text-lg hover:bg-white hover:text-[#FF5500] hover:border-[#FF5500] border border-transparent"
+                >
+                  Explore Academics
+                </button>
               </div>
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
 
-      {/* Custom controls */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-4 z-50">
-        {/* prev arrow */}
-        <button className="custom-prev text-[#FF5500] text-3xl font-bold">
-          &lt;
-        </button>
+      {/* Custom Arrows */}
+      <div className="custom-prev absolute md:left-[42%] md:bottom-2 lg:left-[43%] xl:left-[45%] xl:bottom-1 z-50 text-[#FF5500] cursor-pointer">
+        <ArrowLeft className="hidden md:block md:w-[20px] md:h-[20px] lg:w-[30px] lg:h-[30px]" />
+      </div>
 
-        {/* bullets */}
-        <div className="custom-pagination flex gap-2"></div>
-
-        {/* Next arrow */}
-        <button className="custom-next text-[#FF5500] text-3xl font-bold">
-          &gt;
-        </button>
+      <div className="custom-next absolute md:right-[42%] md:bottom-2 lg:right-[43%] xl:right-[45%] xl:bottom-1 z-50 text-[#FF5500] cursor-pointer">
+        <ArrowRight className="hidden  md:block md:w-[20px] md:h-[20px] lg:w-[30px] lg:h-[30px]" />
       </div>
     </div>
   );
-};
-
-export default HeroSlider;
+}
