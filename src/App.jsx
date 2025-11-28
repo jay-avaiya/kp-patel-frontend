@@ -1,7 +1,6 @@
 import "./styles/App.css";
 import { Route, Routes } from "react-router-dom";
 import { Suspense, lazy } from "react";
-import AdmissionProcessPage from "./pages/Main/Admissonpage/AdmissionProcessPage";
 
 const AuthLayout = lazy(() => import("./layouts/AuthLayout"));
 const MainLayout = lazy(() => import("./layouts/MainLayout"));
@@ -18,6 +17,9 @@ const CareerPage = lazy(() => import("./pages/Main/Careerpage/Careerpage"));
 const AlumniPage = lazy(() => import("./pages/Main/Alumnipage/Alumnipage"));
 const AdmissionPage = lazy(() =>
   import("./pages/Main/Admissonpage/Admissionpage")
+);
+const AdmissionProcessPage = lazy(() =>
+  import("./pages/Main/Admissonpage/AdmissionProcessPage")
 );
 const ContactPage = lazy(() => import("./pages/Main/Contactpage/Contactpage"));
 const LoginPage = lazy(() => import("./pages/Auth/Login/LoginPage"));
@@ -42,7 +44,10 @@ function App() {
           <Route path="/career" element={<CareerPage />} />
           <Route path="/alumni" element={<AlumniPage />} />
           <Route path="/admission" element={<AdmissionPage />} />
-          <Route path="/admission/process" element={<AdmissionProcessPage />} />
+          <Route
+            path="/admission/admission-form"
+            element={<AdmissionProcessPage />}
+          />
           <Route path="/contact" element={<ContactPage />} />
         </Route>
 

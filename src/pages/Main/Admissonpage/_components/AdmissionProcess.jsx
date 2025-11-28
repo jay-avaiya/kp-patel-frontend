@@ -92,7 +92,7 @@ const AdmissionProcess = () => {
       <button
         className="flex items-center gap-[18px] bg-[#F94223] text-white h-[50px] w-[252px] rounded-full justify-center hover:text-[#F94223] hover:bg-transparent hover:border hover:border-[#F94223]"
         onClick={() => {
-          navigate("/admission/process");
+          navigate("/admission/admission-form");
           handleClick();
         }}
       >
