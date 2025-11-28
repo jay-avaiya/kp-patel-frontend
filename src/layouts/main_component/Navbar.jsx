@@ -87,10 +87,10 @@ const Navbar = () => {
     <nav className="w-full h-fit">
       {/* Desktop */}
       <div className="bg-white text-black">
-        {/* Top header responsive */}
-        <div className="bg-[#011844] px-8 py-1 md:px-8 md:py-2 lg:px-14 lg:py-6 xl:px-[69px] xl:py-[30px]">
+        {/* Top header */}
+        <div className="bg-[#011844] px-8 py-1 md:px-8 md:py-2 lg:px-14 lg:py-4- xl:px-[69px] xl:py-[12px]">
           <div className="flex justify-center md:justify-between items-center text-center ">
-            <p className=" text-[10px]  md:text-[12px] lg:text-[20px] font-montserrat font-medium text-white">
+            <p className="text-[10px]  md:text-[12px] lg:text-[18px] font-montserrat font-medium text-white">
               Admission open for Std. 1 to 12 on Ash Education Trust Vijapur
             </p>
 
@@ -107,10 +107,10 @@ const Navbar = () => {
           <img
             src="/logo.png"
             alt="logo"
-            className="lg:h-[90px] lg:w-[200px] xl:h-[133px] xl:w-[244px] cursor-pointer object-cover scale-110 translate-y-1"
+            className="lg:h-[90px] lg:w-[200px] xl:h-[112px] xl:w-[244px] cursor-pointer object-cover scale-110 translate-y-1"
           />
 
-          <ul className="text-black flex items-center justify-between lg:gap-4 xl:gap-6 2xl:gap-6 list-none lg:text-[12.5px] xl:text-[16px] 2xl:text-xl font-medium">
+          <ul className="text-black flex items-center justify-between lg:gap-4 xl:gap-6 2xl:gap-6 list-none lg:text-[12.5px] xl:text-[18px]  font-medium">
             {navBar.map((item, index) => {
               let isActive;
 
@@ -143,7 +143,7 @@ const Navbar = () => {
             })}
 
             <button
-              className="cursor-pointer text-white bg-[#FF5500] lg:text-[16px] xl:text-[20px] font-medium py-2 px-6 border border-transparent rounded-full hover:bg-transparent hover:border hover:border-[#FF5500] hover:text-[#FF5500] transition-all duration-300 text-center"
+              className="cursor-pointer text-white bg-[#FF5500] lg:text-[16px] xl:text-[18px] font-medium py-2 px-4 border border-transparent rounded-full hover:bg-transparent hover:border hover:border-[#FF5500] hover:text-[#FF5500] transition-all duration-300 text-center"
               onClick={() => navigate("/contact")}
             >
               Contact Us
