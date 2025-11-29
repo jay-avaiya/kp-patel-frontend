@@ -14,7 +14,7 @@ const AdmissionProcessPage = () => {
           Admission Form
         </h3>
 
-        <div className="w-[90%] h-auto flex flex-col items-center gap-[100px]">
+        <div className="w-[90%] h-auto flex flex-col items-center gap-25">
           <ApplicationForm />
           <DocumentVerification />
           <AdmissionPayment />
