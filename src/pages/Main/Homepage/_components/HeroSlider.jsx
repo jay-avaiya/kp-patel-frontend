@@ -33,7 +33,7 @@ export default function HeroSlider() {
   };
 
   return (
-    <div className="relative w-full h-[600px]">
+    <div className="relative w-full h-[400px] md:h-[580px]">
       <Swiper
         slidesPerView={1}
         loop={true}
@@ -41,7 +41,7 @@ export default function HeroSlider() {
         pagination={{
           clickable: true,
           renderBullet: (index, className) =>
-            `<span class="${className}" 
+            `<span class="${className}"
           style="width:8px;
           height:8px;
           background:white;
@@ -98,12 +98,12 @@ export default function HeroSlider() {
       </Swiper>
 
       {/* Custom Arrows */}
-      <div className="custom-prev absolute md:left-[42%] md:bottom-2 lg:left-[43%] xl:left-[45%] xl:bottom-1 z-50 text-[#FF5500] cursor-pointer">
-        <ArrowLeft className="hidden md:block md:w-[20px] md:h-[20px] lg:w-[30px] lg:h-[30px]" />
+      <div className="custom-prev absolute md:left-[42%] md:bottom-2 lg:left-[43%] xl:left-[46%] xl:bottom-2 z-50 text-white cursor-pointer">
+        <ArrowLeft className="hidden md:block md:w-[20px] md:h-[20px] " />
       </div>
 
-      <div className="custom-next absolute md:right-[42%] md:bottom-2 lg:right-[43%] xl:right-[45%] xl:bottom-1 z-50 text-[#FF5500] cursor-pointer">
-        <ArrowRight className="hidden  md:block md:w-[20px] md:h-[20px] lg:w-[30px] lg:h-[30px]" />
+      <div className="custom-next absolute md:right-[42%] md:bottom-2 lg:right-[43%] xl:right-[46%] xl:bottom-2 z-50 text-white cursor-pointer">
+        <ArrowRight className="hidden  md:block md:w-[20px] md:h-[20px] " />
       </div>
     </div>
   );
