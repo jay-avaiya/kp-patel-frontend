@@ -3,8 +3,8 @@ import { ArrowRight } from "lucide-react";
 
 const AlumniTitle = () => {
   return (
-    <div className="w-full px-6 sm:px-8 md:px-16 lg:px-14 xl:px-17 py-6 sm:py-8 space-y-10 sm:space-y-16">
-      <h3 className="text-3xl sm:text-4xl md:text-5xl font-montserrat font-semibold text-[#F94223]">
+    <div className="w-full px-6 sm:px-8 md:px-16 lg:px-14 xl:px-17 py-2 space-y-10 sm:space-y-16">
+      <h3 className="text-3xl sm:text-4xl md:text-5xl font-montserrat font-semibold text-[#F94223] leading-snug">
         Ash Education Alumni Network A <br /> Lifelong Community
       </h3>
 

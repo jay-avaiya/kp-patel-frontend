@@ -6,7 +6,7 @@ import CardRight from "../../../layouts/main_component/Purpose & Vision/CardRigh
 
 const Homepage = () => {
   return (
-    <div className="flex flex-col gap-16">
+    <div className="flex flex-col gap-8 md:gap-16">
       <HeroSlider />
 
       <CardLeft

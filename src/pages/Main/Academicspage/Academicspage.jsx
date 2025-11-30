@@ -5,10 +5,10 @@ import Event from "../../../layouts/main_component/Event";
 
 const Academicspage = () => {
   return (
-    <div className="flex flex-col gap-16 md:gap-26">
+    <div className="flex flex-col gap-8 md:gap-16">
       <Curve title={"Academics"} />
 
-      <div className="px-16 py-16 my-12 flex flex-col items-center space-y-16 md:space-y-20 lg:space-y-26 ">
+      <div className="px-16 flex flex-col items-center space-y-16 md:space-y-20 lg:space-y-26 ">
         <div className="flex flex-col space-y-10 text-center">
           <h3 className="text-[#FF5500] text-2xl md:text-3xl xl:text-5xl font-semibold font-montserrat">
             Academic Programs

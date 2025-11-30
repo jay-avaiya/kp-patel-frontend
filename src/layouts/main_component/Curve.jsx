@@ -6,7 +6,7 @@ const Curve = ({ title }) => {
     >
       <h3
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/16 text-white font-montserrat 
-                    text-[20px] md:text-[28px] lg:text-[36px] xl:[42px] 2xl:text-[56px] font-semibold"
+                    text-lg md:text-[28px] lg:text-[36px] xl:[42px] 2xl:text-[56px] font-semibold"
       >
         {title}
       </h3>

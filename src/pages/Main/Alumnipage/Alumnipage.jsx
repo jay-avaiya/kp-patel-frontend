@@ -5,7 +5,7 @@ import ContentCard from "./_components/ContentCard";
 
 const Alumnipage = () => {
   return (
-    <div className="flex flex-col space-y-16">
+    <div className="flex flex-col gap-8 md:gap-16">
       <Curve title={"Alumni"} />
       <AlumniTitle />
       <ContentCard />

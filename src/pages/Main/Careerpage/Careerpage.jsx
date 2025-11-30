@@ -4,10 +4,10 @@ import JobForm from "./_component/JobForm";
 
 const Careerpage = () => {
   return (
-    <div>
+    <div className="flex flex-col gap-8 md:gap-16">
       <Curve title={"Career"} />
 
-      <div className="px-4 md:px-10 lg:px-16 py-16 flex flex-col items-center space-y-24 min-h-screen my-24">
+      <div className="px-4 md:px-10 lg:px-16 flex flex-col items-center space-y-24 min-h-screen">
         <h3 className="text-[#FF5500] text-3xl md:text-4xl lg:text-5xl font-montserrat font-semibold text-center">
           Currently Open Position
         </h3>

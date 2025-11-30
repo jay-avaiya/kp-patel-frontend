@@ -4,10 +4,10 @@ import Event from "../../../layouts/main_component/Event";
 
 const TrushBodypage = () => {
   return (
-    <div className="flex flex-col gap-16 items-center">
+    <div className="flex flex-col gap-8 md:gap-16 items-center">
       <Curve title={"Trust Body"} />
 
-      <div className="flex flex-col max-w-[844px] w-full text-center gap-8 py-12">
+      <div className="flex flex-col max-w-[844px] w-full text-center gap-8">
         <h3 className="text-[#FF5500] font-montserrat font-semibold text-3xl sm:text-4xl xl:text-5xl">
           Managing Committee
         </h3>

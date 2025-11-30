@@ -6,9 +6,9 @@ import CardRight from "../../../layouts/main_component/Purpose & Vision/CardRigh
 
 export default function Aboutpage() {
   return (
-    <div className="flex flex-col space-y-16">
+    <div className="flex flex-col gap-8 md:gap-16">
       <Curve title={"About Us"} />
-      <div className="py-16 flex flex-col items-center gap-24">
+      <div className="flex flex-col items-center gap-24">
         {/* Title */}
         <div className="flex flex-col space-y-6 text-center px-4">
           <h3 className="text-[#FF5500] text-3xl md:text-4xl xl:text-5xl font-semibold font-montserrat">
