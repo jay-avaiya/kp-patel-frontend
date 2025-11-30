@@ -4,6 +4,47 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { useState } from "react";
 
+const FileUploadField = ({
+  id,
+  label,
+  fileName,
+  setFileName,
+  registerName,
+  setValue,
+  error,
+}) => {
+  return (
+    <div className="flex flex-col gap-3 xl:gap-5">
+      <label className="text-[#F94223] text-sm md:text-[16px] lg:text-xl xl:text-2xl">
+        {label}
+      </label>
+
+      <label
+        htmlFor={id}
+        className="w-full bg-[#FDFDFD] rounded-[14px] px-8 py-2 xl:py-4.5 shadow-md cursor-pointer flex items-center justify-between"
+      >
+        <span className="text-xs md:text-sm lg:text-[18px] xl:text-[20px] text-[#25272980]">
+          {fileName}
+        </span>
+        <UploadIcon className="w-3 md:w-3 lg:w-5 xl:w-6" />
+      </label>
+
+      <input
+        id={id}
+        type="file"
+        className="hidden"
+        onChange={(e) => {
+          const file = e.target.files[0];
+          setFileName(file?.name || "Upload Your Document");
+          setValue(registerName, file, { shouldValidate: true });
+        }}
+      />
+
+      <p className="text-red-500 text-[10px] lg:text-sm">{error}</p>
+    </div>
+  );
+};
+
 const DocumentVerification = () => {
   const [preview, setPreview] = useState(null);
 
@@ -14,7 +55,6 @@ const DocumentVerification = () => {
 
   const [showSuccessMsg, setShowSuccessMsg] = useState(false);
 
-  // Validation
   const schema = Yup.object().shape({
     studentPic: Yup.mixed().required("Profile picture is required"),
     birthCertificate: Yup.mixed().required("Birth Certificate is required"),
@@ -26,7 +66,6 @@ const DocumentVerification = () => {
   });
 
   const {
-    register,
     handleSubmit,
     setValue,
     formState: { errors, isSubmitting },
@@ -36,7 +75,7 @@ const DocumentVerification = () => {
   });
 
   const onSubmit = async (data) => {
-    console.log("FINAL DATA => ", data);
+    console.log("FINAL DATA =>", data);
 
     setShowSuccessMsg(true);
     setTimeout(() => setShowSuccessMsg(false), 2000);
@@ -49,32 +88,31 @@ const DocumentVerification = () => {
     setCcName("Upload Your Document");
   };
 
-  // Preview for profile picture
   const handleImagePreview = (file) => {
-    if (file) {
-      setPreview(URL.createObjectURL(file));
-    }
+    if (file) setPreview(URL.createObjectURL(file));
   };
 
   return (
-    <div className="w-full px-7.5 py-8 border-2 border-[#5065FF] rounded-[50px] space-y-10">
-      <div className="border border-[#5065FF] w-[416px] text-center rounded-[60px] shadow-md">
-        <h3 className="text-2xl font-montserrat font-medium leading-[69px] text-[#5065FF]">
+    <div className="w-full px-7.5 py-8 border-2 border-[#5065FF] rounded-4xl lg:rounded-[50px] space-y-6 md:space-y-10">
+      {/* Heading */}
+      <div className="border border-[#5065FF] w-[220px] md:w-[265px] lg:w-[316px] xl:w-[416px] text-center rounded-full shadow-md">
+        <h3 className="text-sm md:text-lg lg:text-xl xl:text-2xl font-montserrat font-medium text-[#5065FF] md:leading-10 lg:leading-16 px-6 py-1">
           Document Verification
         </h3>
       </div>
 
+      {/* Form */}
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="flex flex-row justify-between">
-          {/* LEFT */}
-          <div className="space-y-5 w-auto">
-            <h4 className="text-2xl font-semibold text-center">
+        <div className="flex flex-col items-center md:flex-row md:justify-between">
+          {/* Left */}
+          <div className="space-y-3 md:space-y-5">
+            <h4 className="text-xs md:text-sm lg:text-xl xl:text-2xl font-semibold text-center">
               Student Profile Picture
             </h4>
 
             <label
               htmlFor="studentPic"
-              className="w-[347px] h-[303px] bg-white rounded-[30px] border border-[#5065FF] border-dashed cursor-pointer flex items-center justify-center overflow-hidden relative"
+              className="w-[160px] h-[160px] lg:w-[220px] lg:h-[220px] xl:w-[280px] xl:h-[280px] bg-white rounded-[30px] border border-[#5065FF] border-dashed cursor-pointer flex items-center justify-center overflow-hidden relative"
             >
               {preview ? (
                 <img
@@ -83,8 +121,10 @@ const DocumentVerification = () => {
                 />
               ) : (
                 <div className="flex flex-col items-center gap-4">
-                  <ImageIcon className="w-[83px] h-[83px] text-[#5065FF]" />
-                  <p className="font-montserrat text-[20px]">Upload</p>
+                  <ImageIcon className="w-7 h-7 xl:w-[83px] xl:h-[83px] text-[#5065FF]" />
+                  <p className="text-xs md:text-sm lg:text-lg xl:text-xl">
+                    Upload
+                  </p>
                 </div>
               )}
             </label>
@@ -104,132 +144,56 @@ const DocumentVerification = () => {
             <p className="text-red-500 text-sm">{errors.studentPic?.message}</p>
           </div>
 
-          {/* RIGHT */}
-          <div className="w-[1150px] space-y-5">
+          {/* Right */}
+          <div className="w-[270px] md:w-[360px] lg:w-[520px] xl:w-[750px] mt-4 md:mt-0 space-y-2">
             {/* Birth Certificate */}
-            <div className="flex flex-col gap-5">
-              <label className="text-[#F94223] text-2xl">
-                Birth Certificate
-              </label>
-
-              <label
-                htmlFor="bc"
-                className="w-full bg-[#FDFDFD] rounded-[14px] px-8 py-4.5 shadow-md cursor-pointer flex items-center justify-between"
-              >
-                <span className="text-[20px] text-[#25272980]">{bcName}</span>
-                <UploadIcon />
-              </label>
-
-              <input
-                id="bc"
-                type="file"
-                className="hidden"
-                onChange={(e) => {
-                  const file = e.target.files[0];
-                  setBcName(file?.name || "Upload Your Document");
-                  setValue("birthCertificate", file, { shouldValidate: true });
-                }}
-              />
-
-              <p className="text-red-500 text-sm">
-                {errors.birthCertificate?.message}
-              </p>
-            </div>
+            <FileUploadField
+              id="bc"
+              label="Birth Certificate"
+              fileName={bcName}
+              setFileName={setBcName}
+              registerName="birthCertificate"
+              setValue={setValue}
+              error={errors.birthCertificate?.message}
+            />
 
             {/* Transfer Certificate */}
-            <div className="flex flex-col gap-5">
-              <label className="text-[#F94223] text-2xl">
-                Transfer Certificate
-              </label>
-
-              <label
-                htmlFor="tc"
-                className="w-full bg-[#FDFDFD] rounded-[14px] px-8 py-4.5 shadow-md cursor-pointer flex items-center justify-between"
-              >
-                <span className="text-[20px] text-[#25272980]">{tcName}</span>
-                <UploadIcon />
-              </label>
-
-              <input
-                id="tc"
-                type="file"
-                className="hidden"
-                onChange={(e) => {
-                  const file = e.target.files[0];
-                  setTcName(file?.name || "Upload Your Document");
-                  setValue("transferCertificate", file, {
-                    shouldValidate: true,
-                  });
-                }}
-              />
-
-              <p className="text-red-500 text-sm">
-                {errors.transferCertificate?.message}
-              </p>
-            </div>
+            <FileUploadField
+              id="tc"
+              label="Transfer Certificate"
+              fileName={tcName}
+              setFileName={setTcName}
+              registerName="transferCertificate"
+              setValue={setValue}
+              error={errors.transferCertificate?.message}
+            />
 
             {/* Report Card */}
-            <div className="flex flex-col gap-5">
-              <label className="text-[#F94223] text-2xl">Report Card</label>
-
-              <label
-                htmlFor="rc"
-                className="w-full bg-[#FDFDFD] rounded-[14px] px-8 py-4.5 shadow-md cursor-pointer flex items-center justify-between"
-              >
-                <span className="text-[20px] text-[#25272980]">{rcName}</span>
-                <UploadIcon />
-              </label>
-
-              <input
-                id="rc"
-                type="file"
-                className="hidden"
-                onChange={(e) => {
-                  const file = e.target.files[0];
-                  setRcName(file?.name || "Upload Your Document");
-                  setValue("reportCard", file, { shouldValidate: true });
-                }}
-              />
-
-              <p className="text-red-500 text-sm">
-                {errors.reportCard?.message}
-              </p>
-            </div>
+            <FileUploadField
+              id="rc"
+              label="Report Card"
+              fileName={rcName}
+              setFileName={setRcName}
+              registerName="reportCard"
+              setValue={setValue}
+              error={errors.reportCard?.message}
+            />
 
             {/* Caste Certificate */}
-            <div className="flex flex-col gap-5">
-              <label className="text-[#F94223] text-2xl">
-                Caste Certificate
-              </label>
-
-              <label
-                htmlFor="cc"
-                className="w-full bg-[#FDFDFD] rounded-[14px] px-8 py-4.5 shadow-md cursor-pointer flex items-center justify-between"
-              >
-                <span className="text-[20px] text-[#25272980]">{ccName}</span>
-                <UploadIcon />
-              </label>
-
-              <input
-                id="cc"
-                type="file"
-                className="hidden"
-                onChange={(e) => {
-                  const file = e.target.files[0];
-                  setCcName(file?.name || "Upload Your Document");
-                  setValue("casteCertificate", file, { shouldValidate: true });
-                }}
-              />
-
-              <p className="text-red-500 text-sm">
-                {errors.casteCertificate?.message}
-              </p>
-            </div>
+            <FileUploadField
+              id="cc"
+              label="Caste Certificate"
+              fileName={ccName}
+              setFileName={setCcName}
+              registerName="casteCertificate"
+              setValue={setValue}
+              error={errors.casteCertificate?.message}
+            />
 
             {/* Submit Button */}
             <button
               disabled={isSubmitting}
-              className={`flex items-center gap-[18px] py-2 w-full rounded-full justify-center border
+              className={`flex items-center gap-3.5 lg:gap-5 py-2 w-full rounded-full justify-center border 
                 ${
                   isSubmitting
                     ? "bg-gray-400 text-white cursor-not-allowed"
@@ -237,14 +201,14 @@ const DocumentVerification = () => {
                 }`}
               type="submit"
             >
-              <span className="text-[20px]">
+              <span className="text-sm md:text-[16px] lg:text-[18px] xl:text-[20px]">
                 {isSubmitting ? "Submitting..." : "Submit"}
               </span>
               {!isSubmitting && <ArrowRight />}
             </button>
 
             {showSuccessMsg && (
-              <p className="text-green-600 text-xl font-semibold mt-3 text-center">
+              <p className="text-green-600 text-sm md:text-base lg:text-lg xl:text-xl font-semibold mt-3 text-center">
                 ✔ Documents uploaded successfully!
               </p>
             )}

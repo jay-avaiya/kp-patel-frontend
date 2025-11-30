@@ -20,7 +20,7 @@ const Homepage = () => {
         title={"Purpose"}
         image1={"/purpose1.jpg"}
         image2={"/purpose2.jpg"}
-        color={"FF9700"}
+        color={"FF5500"}
       />
 
       <Calendar />
