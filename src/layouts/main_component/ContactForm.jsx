@@ -41,74 +41,75 @@ const ContactForm = () => {
 
   return (
     <div className="w-full flex items-center justify-center py-10 px-4">
-      <div className=" bg-[#011844] rounded-[40px] flex flex-col lg:flex-row w-full max-w-[1624px] items-center lg:items-start justify-center gap-10 lg:gap-20 py-10 md:py-20 px-4 md:px-16 xl:px-28">
+      <div className=" bg-[#011844] rounded-[40px] flex flex-col md:flex-row w-full max-w-[1624px] items-center lg:items-start justify-center gap-10 lg:gap-20 py-10 md:py-20 px-4 md:px-16 xl:px-28">
         {/* LEFT SECTION */}
-        <div className="flex flex-col items-center lg:items-start text-center lg:text-left w-full lg:w-auto">
+        <div className="flex flex-col items-center md:items-start text-center md:text-left w-full md:w-auto">
           <h3
             className="
             font-montserrat font-bold text-white 
-            text-3xl md:text-4xl lg:text-5xl
+            text-3xl lg:text-4xl xl:text-5xl
             mb-6
           "
           >
             Get In Touch
           </h3>
 
-          {/* Boxes hidden on small screens */}
-          <div className="hidden lg:flex flex-col items-center lg:items-start gap-8 mt-4">
+          <div className="hidden md:flex flex-col items-center md:items-start gap-6 lg:gap-8 mt-4">
             {/* Box 1 */}
-            <div className="bg-white w-[300px] lg:w-[351px] rounded-2xl px-[30px] py-[50px]">
+            <div className="bg-white md:w-[250px] lg:w-[300px] xl:w-[351px] rounded-2xl px-[30px] md:py-4 lg:py-8 xl:py-10">
               <div className="space-y-3">
                 <div className="flex items-center gap-4 p-2">
-                  <Globe size={36} className="text-[#F94223]" />
-                  <h4 className="font-inter font-semibold text-2xl lg:text-3xl text-[#FF5500]">
+                  <Globe className="text-[#F94223] w-4 md:w-5 lg:w-6 xl:w-[20px]" />
+                  <h4 className="font-inter font-semibold text-lg md:text-xl lg:text-2xl xl:text-3xl text-[#FF5500]">
                     Website
                   </h4>
                 </div>
-                <p className="font-inter text-xl lg:text-3xl">
+                <p className="font-inter text-sm md:text-lg lg:text-xl xl:text-3xl">
                   WWW. Kantabe Manilal
                 </p>
               </div>
             </div>
 
             {/* Box 2 */}
-            <div className="bg-white w-[300px] lg:w-[351px] rounded-2xl px-[30px] py-[50px]">
+            <div className="bg-white md:w-[250px] lg:w-[300px] xl:w-[351px] rounded-2xl px-[30px] md:py-4 lg:py-8 xl:py-10">
               <div className="space-y-3">
                 <div className="flex items-center gap-4 p-2">
-                  <PhoneOutgoing size={36} className="text-[#A2C506]" />
-                  <h4 className="font-inter font-semibold text-2xl lg:text-3xl text-[#A2C506]">
+                  <PhoneOutgoing className="text-[#A2C506] w-4 md:w-5 lg:w-6 xl:w-[20px]" />
+                  <h4 className="font-inter font-semibold text-lg md:text-xl lg:text-2xl xl:text-3xl text-[#A2C506]">
                     Phone
                   </h4>
                 </div>
-                <p className="font-inter text-xl lg:text-3xl">+91 9462943415</p>
+                <p className="font-inter text-2xl xl:text-3xl">
+                  +91 9462943415
+                </p>
               </div>
             </div>
 
             {/* Box 3 */}
-            <div className="bg-white w-[300px] lg:w-[351px] rounded-2xl px-[30px] py-[50px]">
+            <div className="bg-white md:w-[250px] lg:w-[300px] xl:w-[351px] rounded-2xl px-[30px] md:py-4 lg:py-8 xl:py-10">
               <div className="space-y-3">
                 <div className="flex items-center gap-4 p-2">
-                  <Mail size={36} className="text-[#19C2FB]" />
-                  <h4 className="font-inter font-semibold text-2xl lg:text-3xl text-[#19C2FB]">
+                  <Mail className="text-[#19C2FB] w-4 md:w-5 lg:w-6 xl:w-[20px]" />
+                  <h4 className="font-inter font-semibold text-lg md:text-xl lg:text-2xl xl:text-3xl text-[#19C2FB]">
                     Email
                   </h4>
                 </div>
-                <p className="font-inter text-lg lg:text-2xl">
+                <p className="font-inter text-sm md:text-lg lg:text-xl xl:text-2xl">
                   boskein47@gmail.com
                 </p>
               </div>
             </div>
 
             {/* Box 4 */}
-            <div className="bg-white w-[300px] lg:w-[351px] rounded-2xl px-[30px] py-[50px]">
+            <div className="bg-white md:w-[250px] lg:w-[300px] xl:w-[351px] rounded-2xl px-[30px] md:py-4 lg:py-8 xl:py-10">
               <div className="space-y-3">
                 <div className="flex items-center gap-4 p-2">
-                  <MapPin size={36} className="text-[#5065FF]" />
-                  <h4 className="font-inter font-semibold text-2xl lg:text-3xl text-[#5065FF]">
+                  <MapPin className="text-[#5065FF] w-4 md:w-5 lg:w-6 xl:w-[20px] " />
+                  <h4 className="font-inter font-semibold text-lg md:text-xl lg:text-2xl xl:text-3xl text-[#5065FF]">
                     Location
                   </h4>
                 </div>
-                <p className="font-inter text-sm lg:text-lg">
+                <p className="font-inter text-xs lg:text-sm xl:text-lg">
                   8, Sector-6, Shopping Centre, Pratap Nagar, Jaipur - 302001
                 </p>
               </div>
@@ -135,7 +136,7 @@ const ContactForm = () => {
             className="
             font-montserrat font-bold 
             text-[#FF5500]
-            text-2xl md:text-3xl lg:text-4xl xl:text-5xl
+            text-2xl lg:text-4xl xl:text-5xl
           "
           >
             Send Us a Message
