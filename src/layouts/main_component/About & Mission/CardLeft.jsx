@@ -42,7 +42,7 @@ const CardLeft = ({ title, color, image1, image2, text }) => {
             />
           </div>
 
-          <div className="flex flex-col items-center md:items-start md:justify-start md:ml-10 mt-18 py-10 md:mt-0 space-y-7">
+          <div className="flex flex-col items-center text-center md:text-start md:items-start md:justify-start md:ml-10 mt-18 py-10 md:mt-0 space-y-7">
             <h3
               className={`font-montserrat font-semibold text-xl md:text-3xl lg:text-4xl  xl:text-5xl  leading-tight ${
                 color ? "text-[#" + color + "]" : "text-[#A2C506]"
@@ -50,7 +50,7 @@ const CardLeft = ({ title, color, image1, image2, text }) => {
             >
               {title || "Add Title"}
             </h3>
-            <p className="text-[8px] md:text-[10px] lg:text-[14px] xl:text-[20px] font-medium leading-normal w-[230px] md:w-[300px] lg:w-[420px] xl:w-[580px]">
+            <p className="text-sm lg:text-[14px] xl:text-[20px] font-medium leading-normal w-[350px] md:w-[300px] lg:w-[420px] xl:w-[580px]">
               {` ${
                 text
                   ? text

@@ -101,7 +101,7 @@ const Footer = () => {
     <footer>
       <div className="w-full h-fit">
         <div className="bg-[#0E1A42]">
-          <div className="maxw h-fit grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 px-[134.41px] py-10">
+          <div className="maxw h-fit grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 px-8 md:px-16 lg:px-24 py-10">
             {/* Quick links */}
             <div>
               <p
@@ -222,7 +222,7 @@ const Footer = () => {
       </div>
 
       <div className="w-full bg-[#FF9700]">
-        <div className="maxw md:h-[58px] h-fit py-3 lg:py-0 flex lg:flex-row flex-col items-center lg:justify-between px-[134.41px]">
+        <div className="maxw md:h-[58px] h-fit py-3 lg:py-0 flex lg:flex-row flex-col items-center lg:justify-between px-8 md:px-16 lg:px-24 gap-4 ">
           <p
             className={` font-medium md:text-[16px] text-[14px] text-white font-manrope text-center `}
           >

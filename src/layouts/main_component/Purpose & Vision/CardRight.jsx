@@ -14,7 +14,7 @@ const CardRight = ({ title, color, image1, image2, text }) => {
             >
               {title || "Add Title"}
             </h3>
-            <p className="text-[8px] md:text-[10px] lg:text-[14px] xl:text-[20px] font-medium leading-normal w-[230px] md:w-[300px] lg:w-[420px] xl:w-[580px]">
+            <p className="text-sm lg:text-[14px] xl:text-[20px] font-medium leading-normal w-[230px] md:w-[300px] lg:w-[420px] xl:w-[580px]">
               {` ${
                 text
                   ? text
@@ -63,15 +63,15 @@ const CardRight = ({ title, color, image1, image2, text }) => {
           </div>
 
           {/* mobile */}
-          <div className="flex flex-col items-center text-end mt-18 py-10 space-y-5 md:hidden">
+          <div className="flex flex-col items-center text-center mt-18 py-10 space-y-5 md:hidden">
             <h3
-              className={`font-montserrat font-semibold text-xl md:text-3xl lg:text-4xl  xl:text-5xl leading-tight ${
+              className={`font-montserrat font-semibold text-xl leading-tight ${
                 color ? "text-[#" + color + "]" : "text-[#A2C506]"
               }`}
             >
               Purpose
             </h3>
-            <p className="text-[8px] md:text-[10px] lg:text-[14px] xl:text-[20px] font-medium leading-normal w-[230px] md:w-[300px] lg:w-[420px] xl:w-[580px]">
+            <p className="text-sm  font-medium leading-normal w-[350px]">
               {` ${
                 text
                   ? text

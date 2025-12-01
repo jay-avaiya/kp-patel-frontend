@@ -41,13 +41,13 @@ const ContactForm = () => {
 
   return (
     <div className="w-full flex items-center justify-center py-10 px-4">
-      <div className=" bg-[#011844] rounded-[40px] flex flex-col md:flex-row w-full max-w-[1624px] items-center lg:items-start justify-center gap-10 lg:gap-20 py-10 md:py-20 px-4 md:px-16 xl:px-28">
+      <div className=" bg-[#011844] rounded-[40px] flex flex-col md:flex-row w-fit items-center lg:items-start justify-center gap-10 lg:gap-20 py-10 md:py-20 px-4 md:px-16 xl:px-28">
         {/* LEFT SECTION */}
-        <div className="flex flex-col items-center md:items-start text-center md:text-left w-full md:w-auto">
+        <div className="flex flex-col items-center text-center md:text-left w-full md:w-auto">
           <h3
             className="
             font-montserrat font-bold text-white 
-            text-3xl lg:text-4xl xl:text-5xl
+            text-3xl lg:text-4xl
             mb-6
           "
           >
@@ -56,41 +56,39 @@ const ContactForm = () => {
 
           <div className="hidden md:flex flex-col items-center md:items-start gap-6 lg:gap-8 mt-4">
             {/* Box 1 */}
-            <div className="bg-white md:w-[250px] lg:w-[300px] xl:w-[351px] rounded-2xl px-[30px] md:py-4 lg:py-8 xl:py-10">
+            <div className="bg-white md:w-[250px] lg:w-[300px] xl:w-[351px] rounded-2xl px-[30px] md:py-4 lg:py-8 ">
               <div className="space-y-3">
                 <div className="flex items-center gap-4 p-2">
-                  <Globe className="text-[#F94223] w-4 md:w-5 lg:w-6 xl:w-[20px]" />
-                  <h4 className="font-inter font-semibold text-lg md:text-xl lg:text-2xl xl:text-3xl text-[#FF5500]">
+                  <Globe className="text-[#F94223] w-4 md:w-5 lg:w-6" />
+                  <h4 className="font-inter font-semibold text-lg md:text-xl lg:text-2xl text-[#FF5500]">
                     Website
                   </h4>
                 </div>
-                <p className="font-inter text-sm md:text-lg lg:text-xl xl:text-3xl">
+                <p className="font-inter text-sm md:text-lg lg:text-xl xl:text-2xl">
                   WWW. Kantabe Manilal
                 </p>
               </div>
             </div>
 
             {/* Box 2 */}
-            <div className="bg-white md:w-[250px] lg:w-[300px] xl:w-[351px] rounded-2xl px-[30px] md:py-4 lg:py-8 xl:py-10">
+            <div className="bg-white md:w-[250px] lg:w-[300px] xl:w-[351px] rounded-2xl px-[30px] md:py-4 lg:py-8 ">
               <div className="space-y-3">
                 <div className="flex items-center gap-4 p-2">
-                  <PhoneOutgoing className="text-[#A2C506] w-4 md:w-5 lg:w-6 xl:w-[20px]" />
-                  <h4 className="font-inter font-semibold text-lg md:text-xl lg:text-2xl xl:text-3xl text-[#A2C506]">
+                  <PhoneOutgoing className="text-[#A2C506] w-4 md:w-5 lg:w-6" />
+                  <h4 className="font-inter font-semibold text-lg md:text-xl  lg:text-2xl text-[#A2C506]">
                     Phone
                   </h4>
                 </div>
-                <p className="font-inter text-2xl xl:text-3xl">
-                  +91 9462943415
-                </p>
+                <p className="font-inter text-xl xl:text-2xl">+91 9462943415</p>
               </div>
             </div>
 
             {/* Box 3 */}
-            <div className="bg-white md:w-[250px] lg:w-[300px] xl:w-[351px] rounded-2xl px-[30px] md:py-4 lg:py-8 xl:py-10">
+            <div className="bg-white md:w-[250px] lg:w-[300px] xl:w-[351px] rounded-2xl px-[30px] md:py-4 lg:py-8">
               <div className="space-y-3">
                 <div className="flex items-center gap-4 p-2">
-                  <Mail className="text-[#19C2FB] w-4 md:w-5 lg:w-6 xl:w-[20px]" />
-                  <h4 className="font-inter font-semibold text-lg md:text-xl lg:text-2xl xl:text-3xl text-[#19C2FB]">
+                  <Mail className="text-[#19C2FB] w-4 md:w-5 lg:w-6" />
+                  <h4 className="font-inter font-semibold text-lg md:text-xl lg:text-2xl text-[#19C2FB]">
                     Email
                   </h4>
                 </div>
@@ -101,11 +99,11 @@ const ContactForm = () => {
             </div>
 
             {/* Box 4 */}
-            <div className="bg-white md:w-[250px] lg:w-[300px] xl:w-[351px] rounded-2xl px-[30px] md:py-4 lg:py-8 xl:py-10">
+            <div className="bg-white md:w-[250px] lg:w-[300px] xl:w-[351px] rounded-2xl px-[30px] md:py-4 lg:py-8">
               <div className="space-y-3">
                 <div className="flex items-center gap-4 p-2">
-                  <MapPin className="text-[#5065FF] w-4 md:w-5 lg:w-6 xl:w-[20px] " />
-                  <h4 className="font-inter font-semibold text-lg md:text-xl lg:text-2xl xl:text-3xl text-[#5065FF]">
+                  <MapPin className="text-[#5065FF] w-4 md:w-5 lg:w-6 " />
+                  <h4 className="font-inter font-semibold text-lg md:text-xl lg:text-2xl text-[#5065FF]">
                     Location
                   </h4>
                 </div>
@@ -125,10 +123,9 @@ const ContactForm = () => {
             w-full max-w-[330px]
             md:max-w-[410px]
             lg:max-w-[630px]
-            xl:max-w-[827px]
             rounded-[40px]
             flex flex-col items-center 
-            p-6 md:p-10 lg:p-12 xl:p-14
+            p-6 md:p-10 lg:p-12
             gap-6 md:gap-8 lg:gap-10
           "
         >
@@ -136,20 +133,20 @@ const ContactForm = () => {
             className="
             font-montserrat font-bold 
             text-[#FF5500]
-            text-2xl lg:text-4xl xl:text-5xl
+            text-2xl lg:text-4xl
           "
           >
             Send Us a Message
           </h3>
 
           {/* INPUT FIELDS */}
-          <div className="flex flex-col w-full gap-5 md:gap-7 lg:gap-10">
+          <div className="flex flex-col w-full gap-5 md:gap-7 lg:gap-8">
             {/* Name */}
             <div className="flex flex-col gap-1">
               <input
                 type="text"
                 placeholder="Your Name"
-                className="text-black placeholder-[#707070CC] outline-none h-10 md:h-14 lg:h-16 xl:h-20 rounded-full px-5 md:px-7 lg:px-10 xl:px-12 text-sm md:text-lg lg:text-xl xl:text-2xl font-inter shadow-lg"
+                className="text-black placeholder-[#707070CC] outline-none h-10 md:h-14 lg:h-16 rounded-full px-5 md:px-7 lg:px-10 xl:px-12  text-sm md:text-lg lg:text-xl font-inter shadow-lg"
                 {...register("name")}
               />
               {errors.name && (
@@ -164,7 +161,7 @@ const ContactForm = () => {
               <input
                 type="email"
                 placeholder="Your Email"
-                className="text-black placeholder-[#707070CC] outline-none h-10 md:h-14 lg:h-16 xl:h-20 rounded-full px-5 md:px-7 lg:px-10 xl:px-12 text-sm md:text-lg lg:text-xl xl:text-2xl font-inter shadow-lg"
+                className="text-black placeholder-[#707070CC] outline-none h-10 md:h-14 lg:h-16 rounded-full px-5 md:px-7 lg:px-10 xl:px-12 text-sm md:text-lg lg:text-xl font-inter shadow-lg"
                 {...register("email")}
               />
               {errors.email && (
@@ -179,7 +176,7 @@ const ContactForm = () => {
               <input
                 type="text"
                 placeholder="Your Number"
-                className="text-black placeholder-[#707070CC] outline-none h-10 md:h-14 lg:h-16 xl:h-20 rounded-full px-5 md:px-7 lg:px-10 xl:px-12 text-sm md:text-lg lg:text-xl xl:text-2xl font-inter shadow-lg"
+                className="text-black placeholder-[#707070CC] outline-none h-10 md:h-14 lg:h-16 rounded-full px-5 md:px-7 lg:px-10 xl:px-12 text-sm md:text-lg lg:text-xl font-inter shadow-lg"
                 {...register("phone")}
               />
               {errors.phone && (
@@ -194,7 +191,7 @@ const ContactForm = () => {
               <input
                 type="text"
                 placeholder="Your Subject"
-                className="text-black placeholder-[#707070CC] outline-none h-10 md:h-14 lg:h-16 xl:h-20 rounded-full px-5 md:px-7 lg:px-10 xl:px-12 text-sm md:text-lg lg:text-xl xl:text-2xl font-inter shadow-lg"
+                className="text-black placeholder-[#707070CC] outline-none h-10 md:h-14 lg:h-16 rounded-full px-5 md:px-7 lg:px-10 xl:px-12 text-sm md:text-lg lg:text-xl font-inter shadow-lg"
                 {...register("subject")}
               />
               {errors.subject && (
@@ -209,7 +206,7 @@ const ContactForm = () => {
               <textarea
                 placeholder="Enter Message"
                 rows={5}
-                className="resize-none text-black placeholder-[#707070CC] outline-none rounded-[30px] px-5 md:px-7 lg:px-10 xl:px-12 py-3 md:py-4 text-sm md:text-lg lg:text-xl xl:text-2xl font-inter shadow-lg"
+                className="resize-none text-black placeholder-[#707070CC] outline-none rounded-[30px] px-5 md:px-7 lg:px-10 xl:px-12 py-3 md:py-4 text-sm md:text-lg lg:text-xl font-inter shadow-lg"
                 {...register("message")}
               />
               {errors.message && (
