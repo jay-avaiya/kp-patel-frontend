@@ -79,6 +79,7 @@ const Navbar = () => {
   ];
 
   const [isOpen, setIsOpen] = useState(false);
+  const [showMobileSearch, setShowMobileSearch] = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -164,7 +165,10 @@ const Navbar = () => {
           className="w-[78px] h-[45px] md:w-[140px] md:h-[60px] object-cover"
         />
 
-        <button className="w-[25px] h-[25px] rounded-full shrink-0 flex items-center justify-center text-white bg-[#F94223] md:hidden">
+        <button
+          onClick={() => setShowMobileSearch(true)}
+          className="w-[25px] h-[25px] rounded-full shrink-0 flex items-center justify-center text-white bg-[#F94223] md:hidden"
+        >
           <SearchIcon size={12} />
         </button>
 
@@ -215,6 +219,31 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+
+      {showMobileSearch && (
+        <div
+          className="fixed inset-0 bg-black/40 z-[999] flex items-center justify-center p-4"
+          onClick={() => setShowMobileSearch(false)}
+        >
+          <div
+            className="bg-white w-full max-w-md p-4 rounded-2xl flex items-center gap-3 shadow-lg"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <input
+              type="text"
+              placeholder="Search..."
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 outline-none"
+            />
+
+            <button
+              onClick={() => setShowMobileSearch(false)}
+              className="text-[#F94223] text-xl"
+            >
+              <X />
+            </button>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
