@@ -25,7 +25,7 @@ const Footer = () => {
     },
     {
       name: "Gallery",
-      link: "/gallery",
+      link: "/events",
     },
     {
       name: "Career",
@@ -44,50 +44,50 @@ const Footer = () => {
     },
     {
       name: "History",
-      link: "/history",
+      link: "/maintenance",
     },
   ];
 
   const studentCorner = [
     {
       name: "Admission Form",
-      link: "/admission-form",
+      link: "/admission/admission-form",
     },
     {
       name: "Syllabus",
-      link: "/syllabus",
+      link: "/maintenance",
     },
     {
       name: "NSS",
-      link: "/nss",
+      link: "/maintenance",
     },
     {
       name: "Scope",
-      link: "/scope",
+      link: "/maintenance",
     },
     {
       name: "Sports",
-      link: "/sports",
+      link: "/maintenance",
     },
     {
       name: "CWDC",
-      link: "/cwdc",
+      link: "/maintenance",
     },
     {
       name: "Computer Training",
-      link: "/computer-training",
+      link: "/maintenance",
     },
     {
       name: "Medical Facilities",
-      link: "/medical-facilities",
+      link: "/maintenance",
     },
     {
       name: "Library",
-      link: "/library",
+      link: "/maintenance",
     },
     {
       name: "Schlorship",
-      link: "/schlorship",
+      link: "/maintenance",
     },
   ];
 
@@ -131,7 +131,7 @@ const Footer = () => {
 
               <div className="flex flex-col gap-y-2 mt-8">
                 {aboutUs.map((link, index) => (
-                  <Link to={link.link} key={index}>
+                  <Link onClick={handleScroll} to={link.link} key={index}>
                     <li className={`font-manrope text-[16px] text-[#DADADA99]`}>
                       {link.name}
                     </li>
@@ -150,7 +150,7 @@ const Footer = () => {
 
               <div className="flex flex-col gap-y-2 mt-8">
                 {studentCorner.map((link, index) => (
-                  <Link to={link.link} key={index}>
+                  <Link onClick={handleScroll} to={link.link} key={index}>
                     <li className={`font-manrope text-[16px] text-[#DADADA99]`}>
                       {link.name}
                     </li>

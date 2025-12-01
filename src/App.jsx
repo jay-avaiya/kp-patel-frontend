@@ -1,7 +1,7 @@
 import "./styles/App.css";
 import { Route, Routes } from "react-router-dom";
 import { Suspense, lazy } from "react";
-import Cookies from "./layouts/main_component/Cookies";
+import UnderDevelopment from "./layouts/_default/UnderDevelopment";
 
 const AuthLayout = lazy(() => import("./layouts/AuthLayout"));
 const MainLayout = lazy(() => import("./layouts/MainLayout"));
@@ -27,6 +27,7 @@ const LoginPage = lazy(() => import("./pages/Auth/Login/LoginPage"));
 const RegisterPage = lazy(() =>
   import("./pages/Auth/RegisterPage/RegisterPage")
 );
+const Cookies = lazy(() => import("./layouts/main_component/Cookies"));
 const NotFoundPage = lazy(() => import("./layouts/_default/NotFoundPage"));
 
 function App() {
@@ -61,6 +62,8 @@ function App() {
 
         {/* 404 Route */}
         <Route path="*" element={<NotFoundPage />} />
+        {/* 503 Route */}
+        <Route path="/maintenance" element={<UnderDevelopment />} />
       </Routes>
     </Suspense>
   );
