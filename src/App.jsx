@@ -1,6 +1,7 @@
 import "./styles/App.css";
 import { Route, Routes } from "react-router-dom";
 import { Suspense, lazy } from "react";
+import Cookies from "./layouts/main_component/Cookies";
 
 const AuthLayout = lazy(() => import("./layouts/AuthLayout"));
 const MainLayout = lazy(() => import("./layouts/MainLayout"));
@@ -33,6 +34,7 @@ function App() {
 
   return (
     <Suspense fallback={<div className="text-center p-8">Loading...</div>}>
+      <Cookies />
       <Routes>
         {/* Public Routes */}
         <Route element={<MainLayout />}>
