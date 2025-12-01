@@ -169,7 +169,7 @@ const Footer = () => {
 
               <div className="mt-8">
                 <p
-                  className={` font-semibold md:text-[18px] text-[16px] text-[#FF5500] font-manrope `}
+                  className={` font-semibold md:text-[18px] text-[16px] text-[#FF9700] font-manrope `}
                 >
                   Address
                 </p>
@@ -183,7 +183,7 @@ const Footer = () => {
 
               <div className="mt-8 flex gap-x-2 items-center">
                 <p
-                  className={` font-semibold md:text-[18px] text-[16px] text-[#FF5500] font-manrope `}
+                  className={` font-semibold md:text-[18px] text-[16px] text-[#FF9700] font-manrope `}
                 >
                   Email:{" "}
                 </p>
@@ -198,7 +198,7 @@ const Footer = () => {
 
               <div className="mt-1 flex gap-x-2 items-center">
                 <p
-                  className={` font-semibold md:text-[18px] text-[16px] text-[#FF5500] font-manrope `}
+                  className={` font-semibold md:text-[18px] text-[16px] text-[#FF9700] font-manrope `}
                 >
                   Phone:{" "}
                 </p>

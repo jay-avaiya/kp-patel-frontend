@@ -87,7 +87,7 @@ export default function HeroSlider() {
                     navigate("/academics");
                     handleScroll();
                   }}
-                  className="bg-[#FF5500] rounded-full py-2 px-6 text-lg hover:bg-white hover:text-[#FF5500] hover:border-[#FF5500] border border-transparent"
+                  className="bg-[#FF5500] rounded-full py-2 px-6 text-lg hover:bg-transparent hover:text-[#FF5500] hover:border-[#FF5500] border border-transparent"
                 >
                   Explore Academics
                 </button>
