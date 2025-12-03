@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { useState } from "react";
+import { api } from "../../../../../lib/axios";
 
 const ApplicationForm = () => {
   const [aadhaarName, setAadhaarName] = useState("Upload Your Document");
@@ -42,7 +43,7 @@ const ApplicationForm = () => {
     email: Yup.string()
       .email("Invalid email address")
       .required("Email is required"),
-    adhaar: Yup.mixed().required("Aadhaar Document is Required"),
+    adhaar: Yup.string().min(12).max(12).required("Aadhar Number is Required"),
     nationality: Yup.string().required("Please Select a Nationality"),
     gender: Yup.string().required("Please Select a Gender"),
   });
@@ -51,21 +52,40 @@ const ApplicationForm = () => {
     register,
     handleSubmit,
     setValue,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
+    formState: { errors, isSubmitting },
     reset,
   } = useForm({ resolver: yupResolver(Schema) });
 
-  const handleSubmitForm = async (data) => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log(data);
+  const handleSubmitForm = async (formData) => {
+    try {
+      const payload = {
+        fullName: formData.name,
+        dateOfBirth: formData.dob,
+        classApplyingFor: formData.class,
+        sectionPreference: formData.section,
+        residentialAddress: formData.address,
+        contactNumber: formData.contact,
+        emailAddress: formData.email,
+        aadharNumber: formData.adhaar,
+        nationalityAndReligion: formData.nationality,
+        gender: formData.gender[0].toUpperCase() + formData.gender.slice(1),
+      };
 
-    setShowSuccessMsg(true);
+      const { data } = await api.post("/admission-form/application", payload);
 
-    // hide after 2 sec
-    setTimeout(() => setShowSuccessMsg(false), 2000);
+      const formId = data.data._id;
+      localStorage.setItem("ADMISSION_FORM_ID", formId);
 
-    reset();
-    setAadhaarName("Upload Your Document");
+      setShowSuccessMsg(true);
+      setTimeout(() => setShowSuccessMsg(false), 3000);
+
+      reset();
+      setAadhaarName("Upload Your Document");
+    } catch (error) {
+      console.log("Error Sending Response:", error.message);
+
+      alert("Something went wrong while submitting application");
+    }
   };
 
   return (
@@ -210,31 +230,14 @@ const ApplicationForm = () => {
             {/* AADHAAR */}
             <div className="flex flex-col gap-3 xl:gap-5">
               <label className="text-[#F94223] text-sm md:text-[16px] lg:text-xl xl:text-2xl">
-                Aadhaar Document
+                Adhaar Number
               </label>
-
-              <label
-                htmlFor="adhaar"
-                className="w-full bg-[#FDFDFD] rounded-[14px] text-xs md:text-sm lg:text-lg xl:text-xl px-8 py-2 lg:py-3 xl:py-4.5 shadow-md cursor-pointer flex items-center justify-between"
-              >
-                <span>{aadhaarName}</span>
-                <UploadIcon className=" w-3 md:w-3.5 lg:w-4.5 xl:w-5" />
-              </label>
-
               <input
-                id="adhaar"
-                type="file"
-                className="hidden"
-                accept="application/pdf,image/*"
-                onChange={(e) => {
-                  const file = e.target.files[0];
-                  setAadhaarName(file?.name || "Upload Your Document");
-
-                  // VERY IMPORTANT: pass file to RHF
-                  setValue("adhaar", file, { shouldValidate: true });
-                }}
+                {...register("adhaar")}
+                type="text"
+                placeholder="Enter Your Adhaar Number"
+                className="w-full bg-[#FDFDFD] rounded-[14px] text-xs md:text-sm lg:text-lg xl:text-xl px-8 py-2 lg:py-3 xl:py-4.5 shadow-md outline-none"
               />
-
               <p className="text-red-500 text-[10px]">
                 {errors.adhaar?.message}
               </p>

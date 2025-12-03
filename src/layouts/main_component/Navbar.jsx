@@ -173,9 +173,11 @@ const Navbar = () => {
         </button>
 
         <div
-          className={` fixed inset-0 bg-[#011844] text-white z-50 transform transition-all duration-300 flex flex-col gap-3.5 px-5 py-8 ${
-            isOpen ? "-translate-x-0" : "-translate-x-full"
-          }`}
+          className={` fixed inset-0 bg-[#011844] text-white z-50
+    h-screen overflow-y-auto
+    transform transition-all duration-300 flex flex-col gap-3.5 px-5 py-8 ${
+      isOpen ? "-translate-x-0" : "-translate-x-full"
+    }`}
         >
           <button
             className="text-[20px] cursor-pointer"
@@ -184,29 +186,23 @@ const Navbar = () => {
             <X />
           </button>
 
-          <div className="w-full flex flex-col gap-3">
-            {mobileNav.map((item, index) => {
-              const isActive =
-                item.path === "/"
-                  ? location.pathname === "/"
-                  : location.pathname.startsWith(item.path);
-
-              return (
-                <div
-                  key={index}
-                  className={`w-full px-4 py-4 border-b border-white/50 hover:bg-[#3947AE] hover:rounded-[13px] hover:border-transparent`}
+          <div className="w-full flex flex-col gap-3 pb-10">
+            {mobileNav.map((item, index) => (
+              <div
+                key={index}
+                className="w-full px-4 py-4 border-b border-white/50 hover:bg-[#3947AE] hover:rounded-[13px] hover:border-transparent"
+              >
+                <Link
+                  onClick={() => setIsOpen(false)}
+                  to={item.path}
+                  className="font-montserrat font-medium text-[16px]"
                 >
-                  <Link
-                    onClick={() => setIsOpen(false)}
-                    to={item.path}
-                    className="font-montserrat font-medium text-[16px]"
-                  >
-                    {item.name}
-                  </Link>
-                </div>
-              );
-            })}
+                  {item.name}
+                </Link>
+              </div>
+            ))}
 
+            {/* Move any extra buttons below */}
             <button
               onClick={() => {
                 navigate("/alumni");

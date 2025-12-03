@@ -56,7 +56,7 @@ const DocumentVerification = () => {
   const [showSuccessMsg, setShowSuccessMsg] = useState(false);
 
   const schema = Yup.object().shape({
-    studentPic: Yup.mixed().required("Profile picture is required"),
+    profilePicture: Yup.mixed().required("Profile picture is required"),
     birthCertificate: Yup.mixed().required("Birth Certificate is required"),
     transferCertificate: Yup.mixed().required(
       "Transfer Certificate is required"
@@ -137,7 +137,7 @@ const DocumentVerification = () => {
               onChange={(e) => {
                 const file = e.target.files[0];
                 handleImagePreview(file);
-                setValue("studentPic", file, { shouldValidate: true });
+                setValue("profilePicture", file, { shouldValidate: true });
               }}
             />
 

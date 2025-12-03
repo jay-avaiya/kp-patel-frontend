@@ -2,6 +2,8 @@ import { Globe, Mail, MapPin, PhoneOutgoing } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
+import { api } from "../../lib/axios";
+import { useState } from "react";
 
 const contactSchema = Yup.object().shape({
   name: Yup.string()
@@ -34,9 +36,36 @@ const ContactForm = () => {
     formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm({ resolver: yupResolver(contactSchema) });
 
-  const onSubmit = async (data) => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    reset();
+  const [successMessage, setSuccessMessage] = useState("");
+
+  const onSubmit = async (formData) => {
+    try {
+      const payload = {
+        name: formData.name,
+        email: formData.email,
+        phoneNo: formData.phone,
+        message: formData.message,
+      };
+
+      const res = await api.post("/contact-form/submit", payload);
+
+      if (res.status === 200) {
+        setSuccessMessage(res.data.message);
+        reset();
+
+        setTimeout(() => {
+          setSuccessMessage("");
+        }, 4000);
+      }
+    } catch (error) {
+      console.log("Error Sending Response:", error.message);
+
+      if (error.response?.data?.message) {
+        alert(error.response.data.message);
+      } else {
+        alert("Something went wrong! Please try again later.");
+      }
+    }
   };
 
   return (
@@ -220,16 +249,16 @@ const ContactForm = () => {
           </div>
 
           {/* Success Message */}
-          {isSubmitSuccessful && (
-            <span className="text-green-600 text-sm md:text-lg font-semibold">
-              Message sent successfully!
+          {successMessage && (
+            <span className="text-green-600 text-sm md:text-lg font-semibold animate-fade-in-out">
+              {successMessage}
             </span>
           )}
 
           {/* Button */}
           <button
             type="submit"
-            disabled={isSubmitting}
+            disabled={isSubmitting || Boolean(successMessage)}
             className="
               w-full bg-[#F24F35] 
               text-white font-montserrat
