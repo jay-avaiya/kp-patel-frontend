@@ -54,60 +54,62 @@ const ContactForm = () => {
             Get In Touch
           </h3>
 
-          <div className="hidden md:flex flex-col items-center md:items-start gap-6 lg:gap-8 mt-4">
+          <div className="w-full flex flex-col items-center md:items-start gap-8 lg:gap-8 mt-4">
             {/* Box 1 */}
-            <div className="bg-white md:w-[250px] lg:w-[300px] xl:w-[351px] rounded-2xl px-[30px] md:py-4 lg:py-8 ">
-              <div className="space-y-3">
-                <div className="flex items-center gap-4 p-2">
+            <div className="bg-white w-full md:w-[250px] lg:w-[300px] xl:w-[351px] rounded-2xl px-[30px] md:py-4 lg:py-8 flex flex-col items-center md:items-start">
+              <div className="space-y-2 md:space-y-3 text-center md:text-left">
+                <div className="flex items-center justify-center  md:justify-normal gap-4 p-2">
                   <Globe className="text-[#F94223] w-4 md:w-5 lg:w-6" />
                   <h4 className="font-inter font-semibold text-lg md:text-xl lg:text-2xl text-[#FF5500]">
                     Website
                   </h4>
                 </div>
-                <p className="font-inter text-sm md:text-lg lg:text-xl xl:text-2xl">
+                <p className="font-inter text-lg lg:text-xl xl:text-2xl mb-3 md:mb-0">
                   WWW. Kantabe Manilal
                 </p>
               </div>
             </div>
 
             {/* Box 2 */}
-            <div className="bg-white md:w-[250px] lg:w-[300px] xl:w-[351px] rounded-2xl px-[30px] md:py-4 lg:py-8 ">
-              <div className="space-y-3">
-                <div className="flex items-center gap-4 p-2">
+            <div className="bg-white w-full md:w-[250px] lg:w-[300px] xl:w-[351px] rounded-2xl px-[30px] md:py-4 lg:py-8 ">
+              <div className="space-y-2 md:space-y-3 text-center md:text-left">
+                <div className="flex items-center justify-center  md:justify-normal gap-4 p-2">
                   <PhoneOutgoing className="text-[#A2C506] w-4 md:w-5 lg:w-6" />
                   <h4 className="font-inter font-semibold text-lg md:text-xl  lg:text-2xl text-[#A2C506]">
                     Phone
                   </h4>
                 </div>
-                <p className="font-inter text-xl xl:text-2xl">+91 9462943415</p>
+                <p className="font-inter text-xl xl:text-2xl mb-3 md:mb-0">
+                  +91 9462943415
+                </p>
               </div>
             </div>
 
             {/* Box 3 */}
-            <div className="bg-white md:w-[250px] lg:w-[300px] xl:w-[351px] rounded-2xl px-[30px] md:py-4 lg:py-8">
-              <div className="space-y-3">
-                <div className="flex items-center gap-4 p-2">
+            <div className="bg-white w-full md:w-[250px] lg:w-[300px] xl:w-[351px] rounded-2xl px-[30px] md:py-4 lg:py-8">
+              <div className="space-y-2 md:space-y-3 text-center md:text-left">
+                <div className="flex items-center justify-center  md:justify-normal gap-4 p-2">
                   <Mail className="text-[#19C2FB] w-4 md:w-5 lg:w-6" />
                   <h4 className="font-inter font-semibold text-lg md:text-xl lg:text-2xl text-[#19C2FB]">
                     Email
                   </h4>
                 </div>
-                <p className="font-inter text-sm md:text-lg lg:text-xl xl:text-2xl">
+                <p className="font-inter text-lg lg:text-xl xl:text-2xl mb-3 md:mb-0">
                   boskein47@gmail.com
                 </p>
               </div>
             </div>
 
             {/* Box 4 */}
-            <div className="bg-white md:w-[250px] lg:w-[300px] xl:w-[351px] rounded-2xl px-[30px] md:py-4 lg:py-8">
-              <div className="space-y-3">
-                <div className="flex items-center gap-4 p-2">
+            <div className="bg-white w-full md:w-[250px] lg:w-[300px] xl:w-[351px] rounded-2xl px-[30px] md:py-4 lg:py-8">
+              <div className="space-y-2 md:space-y-3 text-center md:text-left">
+                <div className="flex items-center justify-center  md:justify-normal gap-4 p-2">
                   <MapPin className="text-[#5065FF] w-4 md:w-5 lg:w-6 " />
                   <h4 className="font-inter font-semibold text-lg md:text-xl lg:text-2xl text-[#5065FF]">
                     Location
                   </h4>
                 </div>
-                <p className="font-inter text-xs lg:text-sm xl:text-lg">
+                <p className="font-inter text-xs lg:text-sm xl:text-lg mb-3 md:mb-0">
                   8, Sector-6, Shopping Centre, Pratap Nagar, Jaipur - 302001
                 </p>
               </div>
