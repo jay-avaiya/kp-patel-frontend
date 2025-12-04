@@ -25,6 +25,7 @@ const ApplicationForm = () => {
     "Class 12",
   ];
 
+  // Form Validation
   const Schema = Yup.object().shape({
     name: Yup.string().required("Full Name is Required").min(3),
     dob: Yup.date()
@@ -48,6 +49,7 @@ const ApplicationForm = () => {
     gender: Yup.string().required("Please Select a Gender"),
   });
 
+  // Form Submit
   const {
     register,
     handleSubmit,
@@ -56,6 +58,7 @@ const ApplicationForm = () => {
     reset,
   } = useForm({ resolver: yupResolver(Schema) });
 
+  // Form Submit Handler
   const handleSubmitForm = async (formData) => {
     try {
       const payload = {
@@ -74,7 +77,7 @@ const ApplicationForm = () => {
       const { data } = await api.post("/admission-form/application", payload);
 
       const formId = data.data._id;
-      localStorage.setItem("ADMISSION_FORM_ID", formId);
+      localStorage.setItem("ADMISSION_FORM_ID", formId); // Id to be use for uploading documents
 
       setShowSuccessMsg(true);
       setTimeout(() => setShowSuccessMsg(false), 3000);

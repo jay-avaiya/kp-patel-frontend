@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { useState } from "react";
+import { api } from "../../../../../lib/axios";
 
 const FileUploadField = ({
   id,
@@ -74,18 +75,43 @@ const DocumentVerification = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = async (data) => {
-    console.log("FINAL DATA =>", data);
+  const onSubmit = async (dt) => {
+    try {
+      // retrieve form id from local storage for uploading documents
+      const formId = localStorage.getItem("ADMISSION_FORM_ID");
 
-    setShowSuccessMsg(true);
-    setTimeout(() => setShowSuccessMsg(false), 2000);
+      if (!formId) return alert("Please submit application form first.");
 
-    reset();
-    setPreview(null);
-    setBcName("Upload Your Document");
-    setTcName("Upload Your Document");
-    setRcName("Upload Your Document");
-    setCcName("Upload Your Document");
+      const formData = new FormData();
+      formData.append("profilePicture", dt.profilePicture);
+      formData.append("birthCertificate", dt.birthCertificate);
+      formData.append("transferCertificate", dt.transferCertificate);
+      formData.append("reportCard", dt.reportCard);
+      formData.append("casteCertificate", dt.casteCertificate);
+
+      const { data } = await api.post(
+        `/admission-form/documents/${formId}`,
+        formData
+      );
+
+      console.log("UPLOAD RESPONSE:", data);
+
+      // removing after upload
+      localStorage.removeItem("ADMISSION_FORM_ID");
+
+      setShowSuccessMsg(true);
+      setTimeout(() => setShowSuccessMsg(false), 2000);
+
+      reset();
+      setPreview(null);
+      setBcName("Upload Your Document");
+      setTcName("Upload Your Document");
+      setRcName("Upload Your Document");
+      setCcName("Upload Your Document");
+    } catch (error) {
+      console.error("UPLOAD ERR:", error);
+      alert("Something went wrong while uploading documents.");
+    }
   };
 
   const handleImagePreview = (file) => {
@@ -141,7 +167,9 @@ const DocumentVerification = () => {
               }}
             />
 
-            <p className="text-red-500 text-sm">{errors.studentPic?.message}</p>
+            <p className="text-red-500 text-sm">
+              {errors.profilePicture?.message}
+            </p>
           </div>
 
           {/* Right */}
